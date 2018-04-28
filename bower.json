@@ -1,0 +1,17 @@
+{
+  "name": "playground",
+  "homepage": "https://github.com/jsncbt/playground",
+  "authors": [
+    "Jason Corbett <jsncbt@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

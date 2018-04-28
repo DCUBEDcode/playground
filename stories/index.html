@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram Stories</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+</head>
+<body>
+
+  <div class="img">
+    <label for="upload" class="img__upload">
+      Upload
+      <input type="file" name="upload" id="upload" class="img__upload" />
+    </label>
+    <div class="preview" id="preview" hidden>
+      <header class="preview__header">
+        <i class="preview__icon fas fa-times" id="close"></i>
+        <div class="preview__actions">
+          <i class="preview__icon preview__icon--emoji fas fa-smile"></i>
+          <i class="preview__icon fas fa-font" id="type"></i>
+        </div>
+      </header>
+      <div class="preview__type">
+        <input type="text" class="preview__input" autofocus>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
