@@ -2,6 +2,9 @@ const upload = document.getElementById("upload");
 const preview = document.getElementById("preview");
 const close = document.getElementById("close");
 const type = document.getElementById("type");
+const textInput = document.getElementById("text-input");
+const showTypeBtn = document.getElementById("show-type-btn");
+const hideTypeBtn = document.getElementById("hide-type-btn");
 
 let img;
 
@@ -34,4 +37,20 @@ upload.addEventListener("change", (e) => {
 close.addEventListener("click", (e) => {
   preview.setAttribute("hidden", "");
   img.setAttribute("src", "");
+})
+
+showTypeBtn.addEventListener("click", (e) => {
+  type.removeAttribute("hidden");
+})
+
+hideTypeBtn.addEventListener("click", (e) => {
+  type.setAttribute("hidden", "");
+  textInput.setAttribute("value", "");
+})
+
+textInput.addEventListener("keyup", (e) => {
+  const val = e.target.value;
+  if(val.length) {
+    hideTypeBtn.removeAttribute("hidden");
+  }
 })

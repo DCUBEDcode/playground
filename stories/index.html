@@ -19,11 +19,12 @@
         <i class="preview__icon fas fa-times" id="close"></i>
         <div class="preview__actions">
           <i class="preview__icon preview__icon--emoji fas fa-smile"></i>
-          <i class="preview__icon fas fa-font" id="type"></i>
+          <i class="preview__icon fas fa-font" id="show-type-btn"></i>
         </div>
       </header>
-      <div class="preview__type">
-        <input type="text" class="preview__input" autofocus>
+      <div class="type" id="type" hidden>
+        <button class="type__done" id="hide-type-btn" hidden>Done</button>
+        <input type="text" placeholder="Type here" class="type__input" id="text-input">
       </div>
     </div>
   </div>

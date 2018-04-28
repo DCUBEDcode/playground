@@ -90,7 +90,7 @@ img {
   text-align: center;
 }
 
-.preview__type {
+.type {
   position: absolute;
   top: 0;
   left: 0;
@@ -102,13 +102,25 @@ img {
   justify-content: center;
 }
 
-.preview__input  {
+.type__done {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  background: none;
+  border: 0;
+}
+
+.type__input  {
   width: 100%;
-  margin: 0 40px;
+  padding: 0 40px;
   text-align: center;
   background: none;
   border: 0;
   outline: 0;
   font-size: 30px;
   font-weight: bold;
+  color: #fff;
 }
