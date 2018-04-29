@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Instagram Stories</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+    <title>Instagram Stories</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+    <script src="zingtouch.js"></script>
+  </head>
+  <body>
 
-  <div class="img">
-    <label for="upload" class="img__upload">
-      Upload
-      <input type="file" name="upload" id="upload" class="img__upload" />
-    </label>
-    <div class="preview" id="preview" hidden>
-      <header class="preview__header">
-        <i class="preview__icon fas fa-times" id="close"></i>
-        <div class="preview__actions">
-          <i class="preview__icon preview__icon--emoji fas fa-smile"></i>
-          <i class="preview__icon fas fa-font" id="show-type-btn"></i>
+    <div class="img">
+      <label for="upload" class="img__upload">
+        Upload
+        <input type="file" name="upload" id="upload" class="img__upload" />
+      </label>
+      <div class="preview" id="preview" hidden>
+        <header class="preview__header">
+          <i class="preview__icon fas fa-times" id="close"></i>
+          <div class="preview__actions">
+            <i class="preview__icon preview__icon--emoji fas fa-smile"></i>
+            <i class="preview__icon fas fa-font" id="show-type-btn"></i>
+          </div>
+        </header>
+        <span class="preview__text" id="printed-text" hidden>This will be dynamic</span>
+        <div class="type" id="type">
+          <button class="type__done" id="hide-type-btn">Done</button>
+          <input type="text" placeholder="Type here" class="type__input" id="text-input" autocomplete="off">
         </div>
-      </header>
-      <div class="type" id="type" hidden>
-        <button class="type__done" id="hide-type-btn" hidden>Done</button>
-        <input type="text" placeholder="Type here" class="type__input" id="text-input">
       </div>
     </div>
-  </div>
 
-  <script src="app.js"></script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>

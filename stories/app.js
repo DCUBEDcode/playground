@@ -4,9 +4,19 @@ const close = document.getElementById("close");
 const type = document.getElementById("type");
 const textInput = document.getElementById("text-input");
 const showTypeBtn = document.getElementById("show-type-btn");
-const hideTypeBtn = document.getElementById("hide-type-btn");
+const saveTypeBtn = document.getElementById("hide-type-btn");
+const printedTextEl = document.getElementById("printed-text");
+
+const region = new ZingTouch.Region(printedTextEl);
+
+const myRotateGesture = new ZingTouch.Rotate();
+const myPanGesture = new ZingTouch.Pan();
 
 let img;
+
+let printedText = "";
+
+let currentAngle = 0;
 
 function handleFiles(files) {
   for (var i = 0; i < files.length; i++) {
@@ -32,25 +42,41 @@ function handleFiles(files) {
 upload.addEventListener("change", (e) => {
   let files = e.target.files;
   handleFiles(files);
-}) ;
+});
 
 close.addEventListener("click", (e) => {
   preview.setAttribute("hidden", "");
-  img.setAttribute("src", "");
+  printedTextEl.innerHTML = "";
 })
 
 showTypeBtn.addEventListener("click", (e) => {
-  type.removeAttribute("hidden");
+  preview.classList.add("preview--typing");
 })
 
-hideTypeBtn.addEventListener("click", (e) => {
-  type.setAttribute("hidden", "");
-  textInput.setAttribute("value", "");
+saveTypeBtn.addEventListener("click", (e) => {
+  // Show the preview block
+  preview.classList.remove("preview--typing");
+  if(textInput.value) {
+    // Save the input value to the global var
+    printedText = textInput.value;
+    // Clear the input for next time
+    textInput.setAttribute("value", "");
+    // Print text into the span
+    printedTextEl.innerHTML = printedText;
+    printedTextEl.removeAttribute("hidden");
+    region.bind(printedTextEl, myRotateGesture, (e) => {
+      currentAngle += e.detail.distanceFromLast;
+      printedTextEl.style.transform = "rotate(" + currentAngle + "deg)";
+    })
+    region.bind(printedTextEl, myPanGesture, (e) => {
+      console.log(e.detail.distanceFromOrigin);
+    })
+  }
 })
 
 textInput.addEventListener("keyup", (e) => {
   const val = e.target.value;
   if(val.length) {
-    hideTypeBtn.removeAttribute("hidden");
+    saveTypeBtn.removeAttribute("hidden");
   }
 })
