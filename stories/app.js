@@ -9,7 +9,10 @@ const printedTextEl = document.getElementById("printed-text");
 
 const region = new ZingTouch.Region(printedTextEl);
 
-const myRotateGesture = new ZingTouch.Rotate();
+const myRotateGesture = new ZingTouch.Rotate({
+  minInputs: 2
+});
+
 const myPanGesture = new ZingTouch.Pan();
 
 let img;
@@ -17,6 +20,9 @@ let img;
 let printedText = "";
 
 let currentAngle = 0;
+
+let currentDistance = 0;
+let currentDirection = 0;
 
 function handleFiles(files) {
   for (var i = 0; i < files.length; i++) {
@@ -69,7 +75,12 @@ saveTypeBtn.addEventListener("click", (e) => {
       printedTextEl.style.transform = "rotate(" + currentAngle + "deg)";
     })
     region.bind(printedTextEl, myPanGesture, (e) => {
-      console.log(e.detail.distanceFromOrigin);
+      let distance = e.detail.data[0].distanceFromOrigin;
+      let direction = e.detail.data[0].directionFromOrigin;
+      let currentDirection = e.detail.data[0].currentDirection;
+      currentDistance += distance;
+      // printedTextEl.style.transform = "translateX(" + currentDistance + "px)";
+      console.log("currentDirection :" + currentDirection);
     })
   }
 })
